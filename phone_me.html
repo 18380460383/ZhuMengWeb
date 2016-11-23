@@ -11,8 +11,9 @@
 		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="css/bootstrap.css" />
-		
+		<link rel="stylesheet" href="css/loadinganimator.css" />
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/mystyle.css" />
 		<style>
 		
 			p {
@@ -25,10 +26,10 @@
 			.mid_message{
 				color: #666666;
 			}
-			.body_div{
+			/*.body_div{
 				width: 400px;
 				margin: auto;
-			}
+			}*/
 			#bottom_img_zhuye:hover{
 			}
 			.bottom_zhuye_a{
@@ -323,10 +324,44 @@
 			<div class="body_div" style="height: 4px;background: #eeeeee;margin-bottom: 60px;">
 		</div>
 		
+		
+		
+				<!-- 模态框（Modal） -->
+<div  class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			
+			<div class="modal-body">
+				<div class="spinner">
+  			<div class="dot1"></div>
+  				<div class="dot2"></div>
+		</div>
+			</div>
+			
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+		
 	</div>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
+							//模态框居中的控制
+	function centerModals(){
+		$('.modal').each(function(i){
+			var $clone = $(this).clone().css('display', 'block').appendTo('body');    
+			var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
+			top = top > 0 ? top : 0;
+			$clone.remove();
+			$(this).find('.modal-content').css("margin-top", top-30);
+		});
+	}
+	$('.modal').on('show.bs.modal', centerModals);		//当模态框出现的时候
+	$(window).on('resize', centerModals);				//当窗口大小变化的时候
+		
+			$('#myModal').modal({
+			keyboard: true
+			});
 					x=0;
 			$(window).scroll(function(){
     			if($(window).scrollTop()>200){
