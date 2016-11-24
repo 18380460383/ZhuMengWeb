@@ -336,6 +336,7 @@
   			<div class="dot1"></div>
   				<div class="dot2"></div>
 		</div>
+		<div style="text-align: center;margin-top: 20px;margin-bottom: 15px;color: red;">加载中。。。</div>
 			</div>
 			
 		</div><!-- /.modal-content -->
@@ -346,6 +347,11 @@
 
 	<script type="text/javascript">
 		$(document).ready(function(){
+			
+			
+			setTimeout(function  () {
+			  $('#myModal').modal('toggle');
+			},10000);
 							//模态框居中的控制
 	function centerModals(){
 		$('.modal').each(function(i){
@@ -360,7 +366,8 @@
 	$(window).on('resize', centerModals);				//当窗口大小变化的时候
 		
 			$('#myModal').modal({
-			keyboard: true
+			keyboard: false,
+			   backdrop:'static'
 			});
 					x=0;
 			$(window).scroll(function(){
