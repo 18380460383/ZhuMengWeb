@@ -41,11 +41,19 @@
 		<script type="text/javascript">
 		$(window).resize(function() {
     		var width1=$(document.body).width();
+    		if(width1>=430){
     			$("#flaot_up").css({'left':width1/2-200});
     			$("#top_user_img").css({'left':width1/2-200});
 				$("#bottom_div").css({'left':width1/2-200});
 				$("#top_nav").css({'left':width1/2-200});
-				if(width1>480){
+    		}else{
+    			$("#flaot_up").css({'left':width1/2-(width1/2)});
+    			$("#top_user_img").css({'left':width1/2-(width1/2)});
+				$("#bottom_div").css({'left':width1/2-(width1/2)});
+				$("#top_nav").css({'left':width1/2-(width1/2)});
+    		}
+    			
+				if(width1>=480){
 						$("#flaot_up").show();
 				}else{
 						$("#flaot_up").hide();
@@ -53,21 +61,26 @@
 });
 			$(document).ready(function  () {
 				var width=$(document.body).width();
-				$("#top_nav").css({'left':width/2-200});
-				if(width>400){
+				if(width>=430){
+					$("#bottom_div").css({left:width/2-200});
+					$("#top_nav").css({'left':width/2-200});
 					$("#flaot_up").css({'left':width/2-200});
 						$("#flaot_up").show();
 				}else{
+					$("#bottom_div").css({left:width/2-(width/2)});
+					$("#top_nav").css({'left':width/2-(width/2)});
 					$("#flaot_up").hide();
 				}
-				$("#bottom_div").css({left:width/2-200});
+				
 				$("#top_user_img").css({left:width/2-200});
 			});
 			
 		</script>
 	</head>
 <body>
-	</div>
+	
+
+	<div class="container" style="padding-bottom: 20px;">
 		<div id="top_nav" style=" position:fixed;height: 50px;width: 400px;margin-bottom: 50px; text-align: right ;display: none;">
 	<nav class="navbar navbar-default" role="navigation" >
 	<div class="container-fluid" style="background: lightskyblue;"> 
@@ -93,13 +106,12 @@
 </div>
 	
 		<div id="top_div" style="height: 50px;display: none;"></div>
-	<div class="container">
 		<!--
         	作者：18380460383@126.com
         	时间：2016-11-22
         	描述：底部导航布局
         -->
-		<div id="bottom_div" class="body_div" style="height: 60px;background: white;position: fixed; bottom:0;margin: auto;display: flex;"> 
+	<!--	<div id="bottom_div" class="body_div" style="height: 60px;background: white;position: fixed; bottom:0;margin: auto;display: flex;"> 
 			<div id="bottom_zhuye" class="mid" style="flex: 1; ">
 				<img id="bottom_img_zhuye" src="img/zhuye_rm.png"  style="width: 48px;height: 48px;"/>
 				<p class="mid_message" style="margin-top: 5px; display: none;">首页</p>
@@ -125,8 +137,35 @@
 				<p class="mid_message" style="margin-top: 5px; display: none;">我的</p>
 			</div>
 			
+		</div>	-->
+	<div id="bottom_div" class="body_div" style="height: 72px;background: white;position: fixed; bottom:0;margin: auto;display: flex;text-align: center;"> 
+			<div id="bottom_zhuye" class="mid" style="flex: 1; ">
+				<img id="bottom_img_zhuye" src="img/zhuye_rm.png"  style="width: 48px;height: 48px;"/>
+				<p class="mid_message" style="margin-top: 5px; display: none;">首页</p>
+			</div>
+			<div style="width: 1px;height: 100%;background: #999999; display: none;"></div>
+			<div id="bottom_guanzhu" class="mid" style="flex: 1; ">
+				<img src="img/guanzhu_rm.png"  style="width: 48px;height: 48px;"/>
+				<p class="mid_message" style="margin-top: 5px; display: none;">关注</p>
+			</div>
+			<div style="width: 1px;height: 100%;background: #999999; display: none;"></div>
+			<div id="bottom_faxian" class="mid" style="flex: 1; ">
+				<img src="img/faxian_rm.png"  style="width: 48px;height: 48px;"/>
+				<p class="mid_message" style="margin-top: 5px; display: none;">发现</p>
+			</div>
+				<div style="width: 1px;height: 100%;background: #999999; display: none;"></div>
+			<div id="bottom_liwu" class="mid" style="flex: 1; ">
+				<img src="img/liwu_rm.png"  style="width: 48px;height: 48px;"/>
+				<p class="mid_message" style="margin-top: 5px; display: none;">购物车</p>
+			</div>
+				<div style="width: 1px;height: 100%;background: #999999; display: none;"></div>
+			<div id="bottom_wode" class="mid" style="flex: 1;">
+				<img src="img/wodez_rm.png"  style="width: 48px;height: 48px;"/>
+				<p class="mid_message" style="margin-top: 5px; display: none;">我的</p>
+			</div>
 		</div>	
 		
+
 		<div id="flaot_up" style="display:flex;width:400px;height: 48px;position: fixed; bottom:50px;text-align: right;margin: auto;"> 
 			<p style="flex: 1;"></p>
 			<img id="float_img" src="img/up.png" style="width: 32px;height: 32px;" />
@@ -347,11 +386,9 @@
 
 	<script type="text/javascript">
 		$(document).ready(function(){
-			
-			
-			setTimeout(function  () {
+		/*	setTimeout(function  () {
 			  $('#myModal').modal('toggle');
-			},10000);
+			},3000);*/
 							//模态框居中的控制
 	function centerModals(){
 		$('.modal').each(function(i){
@@ -365,10 +402,10 @@
 	$('.modal').on('show.bs.modal', centerModals);		//当模态框出现的时候
 	$(window).on('resize', centerModals);				//当窗口大小变化的时候
 		
-			$('#myModal').modal({
+			/*$('#myModal').modal({
 			keyboard: false,
 			   backdrop:'static'
-			});
+			});*/
 					x=0;
 			$(window).scroll(function(){
     			if($(window).scrollTop()>200){
@@ -386,6 +423,18 @@
 		});
 	$("#scroll_top").click(function  () {
 			$('html,body').animate({scrollTop:$('#top_lay').offset().top}, 800);
+		});
+		$("#bottom_zhuye").click(function  () {
+			window.location.href="index.html";
+		});
+		 $("#bottom_liwu").click(function  () {
+	    	window.location.href="car.html";
+	    });
+	    $("#bottom_guanzhu").click(function  () {
+			window.location.href="guanzhu.html";
+		});
+		$("#bottom_faxian").click(function  () {
+			window.location.href="find.html";
 		});
 		$("#scroll_bottom").click(function  () {
 			$('html,body').animate({scrollTop:$('#bottom_lay').offset().top}, 800);
