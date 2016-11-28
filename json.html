@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>json显示问题</title>
+		<script src="js/jquery-1.11.2.min.js"></script>
+	</head>
+	<body>
+		<!--reduce-->
+		<div>
+			<p style="font-size: 16px;" id="add"><span style="font-size: 14px;">{</span>+</p>
+			<div id="content" style="height: 100%;background: white;">
+		   &nbsp;   "status":"y",<br>
+           &nbsp;   "data":{<br>
+           &nbsp; &nbsp;  "count":1,<br>
+          &nbsp; &nbsp;   "items":[<br>
+             &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;   {<br>
+               &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;     "msid":"146468",<br>
+                      &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;  "title":"合伙人加入",<br>
+                       &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp; "desc":"恭喜 158****9907成为您的合伙人，我们一起再接再厉，住梦未来，共创辉煌。",<br>
+                   &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;     "ico":"http://zma.scshux.com/assets/api/images/msgicon.png",<br>
+                     &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;   "type":"link",<br>
+                    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;    "content_id":"",<br>
+                    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;    "count":"1",<br>
+                   &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;     "status":"1",<br>
+                     &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;   "created":"2016-08-10 17:27",<br>
+                      &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;  "link":"http://m.zhumengapp.com/mobile/dream/teamList",<br>
+                       &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp; "ios_class":"",<br>
+                      &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;  "ios_data":"[]",<br>
+                    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;    "android_activity":"",<br>
+                    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;   "android_data":"[]"<br>
+              &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;    }<br>
+         &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;   ]<br>
+        &nbsp; &nbsp; }<br>
+			</div>
+			<p id="end">}</p>
+		</div>
+		<script type="text/javascript">
+		var opr=true;
+			$("#ad"+"d").click(function  () {
+				$("#content").slideToggle();
+				if(opr){
+				$("#add").text("{+...}");	
+				$("#end").hide();
+				}else{
+					$("#add").text("{+");
+					$("#end").show();
+				}
+				opr=!opr;
+			});
+		</script>
+	</body>
+</html>
